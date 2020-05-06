@@ -7,21 +7,20 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 /* Initializing the main project folder */
-app.use(express.static('weather-app'));
+app.use(express.static('app'));
 
 // API endpoint
-projectData = {};
+const projectData = {};
 
 // set port
-
 const port = 8000;
+const server = app.listen(port, () => {
+    console.log(`Hello, listening on port ${port}`);
+});
 
-const server = app.listen(port, listening);
+const apiKey = 'bbcbc22c4ee1c4bd5eecd122afbb2825';
 
-function listening() {
-    console.log(`Hello ${port}`)
-}
-
+app.get('/', function (req, res) { res.send('welcome!'); });
 
 
 
