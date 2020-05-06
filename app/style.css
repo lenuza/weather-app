@@ -11,7 +11,7 @@ body {
     height: auto;
     margin: 0;
     padding: 0;
-    background: rgb(93, 64, 39);
+    background: rgb(32, 26, 21);
     text-align: justify;
     text-justify: inter-word;
     font-family: Arial, sans-serif;
@@ -36,7 +36,8 @@ header {
 }
 
 .main {
-    background-color: rgba( 170, 170, 170, 0.5);
+    background-color: rgba(54, 42, 29, 0.5);
     margin: 1em;
     padding: 0.5em;
+    color: #ddc;
 }
