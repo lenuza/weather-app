@@ -12,18 +12,21 @@ app.use(bodyParser.json());
 /* Initializing the main project folder */
 app.use(express.static('app'));
 
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+
 // set port
 const port = process.env.port || 8000;
 const server = app.listen(port, () => {
     console.log(`Hello, listening on port ${port}`);
 });
 
-app.get(`/`, (req, res) => {
-    res.sendFile('index.html');
-    console.log('hello you');
-});
+// app.get(`/`, (req, res) => {
+//     res.sendFile('index.html');
+//     console.log('hello you');
+// });
 
-app.get('', (req, res) => {
+app.get('/', (req, res) => {
     console.log('Hello world');
     res.send('Hello world');
     res.sendFile('index.html');
