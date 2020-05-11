@@ -1,5 +1,5 @@
 //endpoint for all routes
-const projectData = {};
+const projectData = [];
 
 const express = require('express');
 const bodyParser = require('body-parser')
@@ -26,8 +26,12 @@ const server = app.listen(port, () => {
 //     console.log('hello you');
 // });
 
-app.get('/', (req, res) => {
-    console.log('Hello world');
-    res.send('Hello world');
-    res.sendFile('index.html');
+app.get('/weatherData', (req, res) => {
+    res.send(projectData);
+    console.log(projectData)
+});
+
+app.post('/weatherData', ( req, res ) => {
+    projectData.push(req.body);
+    console.log(projectData);
 });
