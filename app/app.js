@@ -37,10 +37,17 @@ const cityWeather = async (url, city, key) => {
         weatherData = await res.json();
         console.log(weatherData)
 
+        //display fetched data
+        document.getElementById('city').innerHTML = weatherData.name;
+        document.getElementById('date').innerHTML = new Date();
+        document.getElementById('temp').innerHTML = weatherData.main.temp;
+        document.getElementById('content').innerHTML = feelings.value;
+
         postData('/weatherData', weatherData)
         getData()
-        // performAction();
         return weatherData;
+
+
 
     } catch (error) {
         console.log('error', error);
@@ -54,10 +61,7 @@ const getData = async (url = '/getWeatherData') => {
     try {
         const allData = await request.json();
         console.log(allData)
-        document.getElementById('city').innerHTML = allData[0].name;
-        document.getElementById('date').innerHTML = new Date();
-        document.getElementById('temp').innerHTML = allData[0].main.temp;
-        document.getElementById('content').innerHTML = feelings.value;
+
 
         feelings.value = '';
     } catch (error) {
