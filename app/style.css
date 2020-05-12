@@ -36,6 +36,9 @@ header {
 
 input {
     text-align: center;
+    height: 1.8em;
+    font-weight: bolder;
+    text-transform: capitalize;
 }
 
 .weather-now-heading {
