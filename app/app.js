@@ -1,9 +1,12 @@
-let url = 'https://api.openweathermap.org/data/2.5/weather?q='
+let url = 'https://api.openweathermap.org/data/2.5/weather?zip='
 let apiKey = '&appid=bbcbc22c4ee1c4bd5eecd122afbb2825';
 var weatherData;
 let feelings = document.getElementById('feelings');
+
+//listen for click event
 document.getElementById('generate').addEventListener('click', getWeather);
 
+//async post request
 const postData = async (url = '', data = {}) => {
     const response = await fetch(url, {
         method: 'POST',
@@ -16,26 +19,24 @@ const postData = async (url = '', data = {}) => {
 
     try {
         const newData = await response.json();
-        console.log(newData);
         return newData;
     } catch (error) {
         console.log("error", error);
     }
-    console.log('client post done');
 }
 
+//get the city
 function getWeather() {
-    const newCity = document.getElementById('getCity').value;
-    cityWeather(url, newCity, apiKey);
-    console.log(newCity)
+    const newZip = document.getElementById('zip').value;
+    cityWeather(url, newZip, apiKey);
 }
 
-const cityWeather = async (url, city, key) => {
+//fetch data from the weather api
+const cityWeather = async (url, zip, key) => {
 
-    const res = await fetch(url + city + key)
+    const res = await fetch(url + zip + key)
     try {
         weatherData = await res.json();
-        console.log(weatherData)
 
         //display fetched data
         document.getElementById('city').innerHTML = weatherData.name;
@@ -43,25 +44,23 @@ const cityWeather = async (url, city, key) => {
         document.getElementById('temp').innerHTML = weatherData.main.temp;
         document.getElementById('content').innerHTML = feelings.value;
 
+        //call post request
         postData('/weatherData', weatherData)
         getData()
         return weatherData;
-
-
 
     } catch (error) {
         console.log('error', error);
     }
 }
 
+// async get request
 const getData = async (url = '/getWeatherData') => {
 
     const request = await fetch(url);
 
     try {
         const allData = await request.json();
-        console.log(allData)
-
 
         feelings.value = '';
     } catch (error) {
