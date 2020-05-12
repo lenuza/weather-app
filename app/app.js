@@ -62,7 +62,7 @@ const cityWeather = async (url, city, key) => {
         try {
             const allData = await request.json();
             console.log(allData)
-            document.getElementById('show-weather').innerHTML = allData[0].main.temp
+            document.getElementById('entryHolder').innerHTML = allData[0].main.temp
     
         } catch (error) {
             console.log("error", error);
