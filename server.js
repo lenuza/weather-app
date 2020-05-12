@@ -21,14 +21,9 @@ const server = app.listen(port, () => {
     console.log(`Hello, listening on port ${port}`);
 });
 
-// app.get(`/`, (req, res) => {
-//     res.sendFile('index.html');
-//     console.log('hello you');
-// });
-
-app.get('/weatherData', (req, res) => {
+app.get('/getWeatherData', (req, res) => {
     res.send(projectData);
-    console.log(projectData)
+    console.log('data sent')
 });
 
 app.post('/weatherData', ( req, res ) => {
