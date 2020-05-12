@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Weather app</title>
 </head>
+
 <body>
     <header>
         <h1>Weather app</h1>
     </header>
     <main class="main">
-        <h2>The Weather Now</h2>
-        <div>
-            <form>
-                <input id="getCity" type="text">
-                <button id="generate" onclick="getWeather()" type="button">Submit</button>
+        <h2 class="weather-now-heading">check the weather now</h2>
+        <div class="content">
+            <form class="weather-form">
+                <input id="getCity" type="text" placeholder="select city ...">
                 <textarea name="" id="feelings" cols="30" rows="10"></textarea>
+                <button id="generate" type="button">Submit</button>
             </form>
         </div>
-        <div class="show-data">
-            <div id="entryHolder">
-                <div id="date"></div>
-                <div id="temp"></div>
-                <div id="content"></div>
-            </div>
+            <div class="show-data" id="entryHolder">
+            <div class="show-data-item" id="city"></div>
+            <div class="show-data-item" id="date"></div>
+            <div class="show-data-item" id="temp"></div>
+            <div class="show-data-item" id="content"></div>
         </div>
     </main>
     <script src="app.js"></script>
 </body>
+
 </html>

@@ -11,7 +11,7 @@ body {
     height: auto;
     margin: 0;
     padding: 0;
-    background: rgb(32, 26, 21);
+    background: rgb(21, 26, 32);
     text-align: justify;
     text-justify: inter-word;
     font-family: Arial, sans-serif;
@@ -26,18 +26,37 @@ h1 {
     margin: 1em;
     margin-top: 0;
     padding: 0.5em;
-    /* background-color: rgba( 200, 200, 200, 0.5); */
-    /* border-radius: 0.1em; */
 }
 
 header {
-    background: url("images/boriskin-vladislav-DW6vLDK3tVE-unsplash.jpg") rgb(93, 64, 39);
+    background: url("images/jakob-owens-Kuti6Fgprqw-unsplash.jpg") rgb(39, 64, 93);
     background-size: cover;
+    border-bottom: 3px solid #fff;
+}
+
+input {
+    text-align: center;
+}
+
+.weather-now-heading {
+    text-align: center;
+    text-transform: capitalize;
 }
 
 .main {
-    background-color: rgba(54, 42, 29, 0.5);
+    background-color: rgba(29, 42, 54, 0.5);
     margin: 1em;
     padding: 0.5em;
     color: #ddc;
+}
+
+.weather-form, .show-data {
+    display: flex;
+    width: 60%;
+    margin: auto;
+    flex-direction: column;
+}
+
+.show-data-item {
+    text-align: center;
 }

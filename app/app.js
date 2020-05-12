@@ -1,7 +1,8 @@
 let url = 'https://api.openweathermap.org/data/2.5/weather?q='
 let apiKey = '&appid=bbcbc22c4ee1c4bd5eecd122afbb2825';
 var weatherData;
-// document.getElementById('submit').addEventListener('click', getWeather);
+let feelings = document.getElementById('feelings');
+document.getElementById('generate').addEventListener('click', getWeather);
 
 const postData = async (url = '', data = {}) => {
     const response = await fetch(url, {
@@ -35,9 +36,7 @@ const cityWeather = async (url, city, key) => {
     try {
         weatherData = await res.json();
         console.log(weatherData)
-        //display data
-        // document.getElementById('show-weather').innerHTML = data.main.feels_like;
-        // postAndGet(data)
+
         postData('/weatherData', weatherData)
         getData()
         // performAction();
@@ -48,48 +47,20 @@ const cityWeather = async (url, city, key) => {
     }
 }
 
-// function updateUI() {
-//     // getData('/getWeatherData')
-//     //     .then(function(data) {
-//     //         document.getElementById('show-weather').innerHTML = data.main.temp
-//     //         console.log('data received')
-//     // })
+const getData = async (url = '/getWeatherData') => {
 
-    const getData = async (url = '/getWeatherData') => {
+    const request = await fetch(url);
 
-        const request = await fetch(url);
-    
-        try {
-            const allData = await request.json();
-            console.log(allData)
-            document.getElementById('entryHolder').innerHTML = allData[0].main.temp
-    
-        } catch (error) {
-            console.log("error", error);
-        }
+    try {
+        const allData = await request.json();
+        console.log(allData)
+        document.getElementById('city').innerHTML = allData[0].name;
+        document.getElementById('date').innerHTML = new Date();
+        document.getElementById('temp').innerHTML = allData[0].main.temp;
+        document.getElementById('content').innerHTML = feelings.value;
+
+        feelings.value = '';
+    } catch (error) {
+        console.log("error", error);
     }
-// }
-
-
-// function performAction(){
-//     getData('/getWeatherData')
-
-//         .then(function(data){
-//             // Add data
-//             console.log(data);
-//         })
-//         .then(
-//         updateUI()
-//         )
-// }
-
-// const updateUI = async () => {
-//     const request = await fetch('/weatherData');
-//     try{
-//         const data = await request.json();
-//         document.getElementById('show-weather').innerHTML = data.main.temp;
-
-//     }catch(error){
-//         console.log("error", error);
-//     }
-// }
+}

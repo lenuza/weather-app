@@ -7,13 +7,12 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 app.use(bodyParser.json());
 /* Initializing the main project folder */
 app.use(express.static('app'));
-
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
 
 // set port
 const port = process.env.port || 8000;
@@ -26,7 +25,7 @@ app.get('/getWeatherData', (req, res) => {
     console.log('data sent')
 });
 
-app.post('/weatherData', ( req, res ) => {
+app.post('/weatherData', (req, res) => {
     projectData.push(req.body);
     console.log(projectData);
 });
