@@ -24,6 +24,11 @@ app.get('/getWeatherData', (req, res) => {
 });
 
 app.post('/weatherData', (req, res) => {
-    projectData.push(req.body);
+    newEntry = {
+        weather: req.body.weather,
+        feelings: req.body.feelings,
+    }
+
+    projectData.push(newEntry);
     console.log(projectData);
 });

@@ -45,7 +45,7 @@ const cityWeather = async (url, zip, key) => {
         document.getElementById('content').innerHTML = feelings.value;
 
         //call post request
-        postData('/weatherData', weatherData)
+        postData('/weatherData', { weather: weatherData, feelings: feelings.value} )
         getData()
         return weatherData;
 
