@@ -25,7 +25,7 @@ const postData = async (url = '', data = {}) => {
     }
 }
 
-//get the city
+//get the city and then fetch, post and update UI
 function getWeather() {
     const newZip = document.getElementById('zip').value;
     cityWeather(url, newZip, apiKey)
@@ -51,17 +51,7 @@ const cityWeather = async (url, zip, key) => {
     try {
         const weatherData = await res.json();
 
-        //display fetched data
-        // document.getElementById('city').innerHTML = weatherData.name;
-        // document.getElementById('date').innerHTML = new Date();
-        // document.getElementById('temp').innerHTML = weatherData.main.temp;
-        // document.getElementById('content').innerHTML = feelings.value;
-
-        //call post request
-        // postData('/weatherData', { weather: weatherData, feelings: feelings.value} )
-        // getData()
         return weatherData;
-
     } catch (error) {
         console.log('error', error);
     }
