@@ -37,8 +37,10 @@ header {
 input {
     text-align: center;
     height: 1.8em;
-    font-weight: bolder;
-    text-transform: capitalize;
+}
+textarea {
+    font-size: 1em;
+    padding: 0.5em;
 }
 
 .weather-now-heading {
@@ -63,4 +65,9 @@ input {
 
 .show-data-item {
     text-align: center;
+}
+
+::placeholder {
+    font-weight: bolder;
+    text-transform: capitalize;
 }
