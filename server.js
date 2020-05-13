@@ -25,8 +25,10 @@ app.get('/getWeatherData', (req, res) => {
 
 app.post('/weatherData', (req, res) => {
     newEntry = {
-        weather: req.body.weather,
-        feelings: req.body.feelings,
+        temperature: req.body.temperature,
+        city: req.body.city,
+        date: req.body.date,
+        content: req.body.content
     }
 
     projectData.push(newEntry);

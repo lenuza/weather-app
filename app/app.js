@@ -1,7 +1,7 @@
 let url = 'https://api.openweathermap.org/data/2.5/weather?zip='
 let apiKey = '&units=imperial&appid=bbcbc22c4ee1c4bd5eecd122afbb2825';
-var weatherData;
-let feelings = document.getElementById('feelings');
+// var weatherData;
+let content = document.getElementById('feelings');
 
 //listen for click event
 document.getElementById('generate').addEventListener('click', getWeather);
@@ -28,7 +28,20 @@ const postData = async (url = '', data = {}) => {
 //get the city
 function getWeather() {
     const newZip = document.getElementById('zip').value;
-    cityWeather(url, newZip, apiKey);
+    cityWeather(url, newZip, apiKey)
+    .then(function(data){
+        console.log(new Date());
+        postData('/weatherData', {
+            temperature: data.main.temp,
+            city: data.name,
+            date: new Date(),
+            content: content.value
+        })
+    })
+    .then(function (){
+        getData();
+    })
+
 }
 
 //fetch data from the weather api
@@ -36,17 +49,17 @@ const cityWeather = async (url, zip, key) => {
 
     const res = await fetch(url + zip + key)
     try {
-        weatherData = await res.json();
+        const weatherData = await res.json();
 
         //display fetched data
-        document.getElementById('city').innerHTML = weatherData.name;
-        document.getElementById('date').innerHTML = new Date();
-        document.getElementById('temp').innerHTML = weatherData.main.temp;
-        document.getElementById('content').innerHTML = feelings.value;
+        // document.getElementById('city').innerHTML = weatherData.name;
+        // document.getElementById('date').innerHTML = new Date();
+        // document.getElementById('temp').innerHTML = weatherData.main.temp;
+        // document.getElementById('content').innerHTML = feelings.value;
 
         //call post request
-        postData('/weatherData', { weather: weatherData, feelings: feelings.value} )
-        getData()
+        // postData('/weatherData', { weather: weatherData, feelings: feelings.value} )
+        // getData()
         return weatherData;
 
     } catch (error) {
@@ -61,6 +74,10 @@ const getData = async (url = '/getWeatherData') => {
 
     try {
         const allData = await request.json();
+        document.getElementById('city').innerHTML = allData[0].city;
+        document.getElementById('date').innerHTML = allData[0].date;
+        document.getElementById('temp').innerHTML = allData[0].temperature;
+        document.getElementById('content').innerHTML = allData[0].content;
 
         feelings.value = '';
     } catch (error) {
