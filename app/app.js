@@ -74,10 +74,10 @@ const getData = async (url = '/getWeatherData') => {
 
     try {
         const allData = await request.json();
-        document.getElementById('city').innerHTML = allData[0].city;
-        document.getElementById('date').innerHTML = allData[0].date;
-        document.getElementById('temp').innerHTML = allData[0].temperature;
-        document.getElementById('content').innerHTML = allData[0].content;
+        document.getElementById('city').innerHTML = allData.newEntry.city;
+        document.getElementById('date').innerHTML = allData.newEntry.date;
+        document.getElementById('temp').innerHTML = allData.newEntry.temperature;
+        document.getElementById('content').innerHTML = allData.newEntry.content;
 
         feelings.value = '';
     } catch (error) {

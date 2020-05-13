@@ -1,6 +1,6 @@
 //endpoint for all routes
-const projectData = [];
-
+const projectData = {
+};
 const express = require('express');
 const bodyParser = require('body-parser')
 const cors = require('cors');
@@ -24,13 +24,13 @@ app.get('/getWeatherData', (req, res) => {
 });
 
 app.post('/weatherData', (req, res) => {
-    newEntry = {
+    var newEntry = {
         temperature: req.body.temperature,
         city: req.body.city,
         date: req.body.date,
         content: req.body.content
     }
 
-    projectData.push(newEntry);
-    console.log(projectData);
+    projectData['newEntry'] = newEntry;
+    console.log(projectData)
 });
