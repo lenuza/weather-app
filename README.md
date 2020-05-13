@@ -5,7 +5,7 @@ The Weather app is an asynchronous web app that uses Web API and user data to dy
 
 __To run it:__
 
-1. clone the project from GitHub: https://github.com/lenuza/weather-app.git
+1. clone/download the project from GitHub: https://github.com/lenuza/weather-app.git
 
 2. cd weather-app ( to move into the project folder)
 
