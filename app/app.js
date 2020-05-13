@@ -1,5 +1,5 @@
 let url = 'https://api.openweathermap.org/data/2.5/weather?zip='
-let apiKey = '&appid=bbcbc22c4ee1c4bd5eecd122afbb2825';
+let apiKey = '&units=imperial&appid=bbcbc22c4ee1c4bd5eecd122afbb2825';
 var weatherData;
 let feelings = document.getElementById('feelings');
 
