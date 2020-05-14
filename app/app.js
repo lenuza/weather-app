@@ -1,10 +1,6 @@
 let url = 'https://api.openweathermap.org/data/2.5/weather?q='
 let apiKey = '&units=imperial&appid=bbcbc22c4ee1c4bd5eecd122afbb2825';
-// var weatherData;
 let content = document.getElementById('feelings');
-
-//listen for click event
-// document.getElementById('generate').addEventListener('click', getWeather);
 
 //async post request
 const postData = async (url = '', data = {}) => {
@@ -29,18 +25,18 @@ const postData = async (url = '', data = {}) => {
 function getWeather() {
     const newCity = document.getElementById('newCity').value;
     cityWeather(url, newCity, apiKey)
-    .then(function(data){
-        console.log(new Date());
-        postData('/weatherData', {
-            temperature: data.main.temp,
-            city: data.name,
-            date: new Date(),
-            content: content.value
+        .then(function (data) {
+            console.log(new Date());
+            postData('/weatherData', {
+                temperature: data.main.temp,
+                city: data.name,
+                date: new Date(),
+                content: content.value
+            })
         })
-    })
-    .then(function (){
-        getData();
-    })
+        .then(function () {
+            getData();
+        })
 
 }
 
