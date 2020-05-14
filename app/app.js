@@ -1,4 +1,4 @@
-let url = 'https://api.openweathermap.org/data/2.5/weather?zip='
+let url = 'https://api.openweathermap.org/data/2.5/weather?q='
 let apiKey = '&units=imperial&appid=bbcbc22c4ee1c4bd5eecd122afbb2825';
 // var weatherData;
 let content = document.getElementById('feelings');
@@ -27,8 +27,8 @@ const postData = async (url = '', data = {}) => {
 
 //get the city and then fetch, post and update UI
 function getWeather() {
-    const newZip = document.getElementById('zip').value;
-    cityWeather(url, newZip, apiKey)
+    const newCity = document.getElementById('newCity').value;
+    cityWeather(url, newCity, apiKey)
     .then(function(data){
         console.log(new Date());
         postData('/weatherData', {
@@ -45,9 +45,9 @@ function getWeather() {
 }
 
 //fetch data from the weather api
-const cityWeather = async (url, zip, key) => {
+const cityWeather = async (url, city, key) => {
 
-    const res = await fetch(url + zip + key)
+    const res = await fetch(url + city + key)
     try {
         const weatherData = await res.json();
 
