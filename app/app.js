@@ -4,7 +4,7 @@ let apiKey = '&units=imperial&appid=bbcbc22c4ee1c4bd5eecd122afbb2825';
 let content = document.getElementById('feelings');
 
 //listen for click event
-document.getElementById('generate').addEventListener('click', getWeather);
+// document.getElementById('generate').addEventListener('click', getWeather);
 
 //async post request
 const postData = async (url = '', data = {}) => {
