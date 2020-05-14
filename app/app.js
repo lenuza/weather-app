@@ -66,7 +66,7 @@ const getData = async (url = '/getWeatherData') => {
         const allData = await request.json();
         document.getElementById('city').innerHTML = allData.newEntry.city;
         document.getElementById('date').innerHTML = allData.newEntry.date;
-        document.getElementById('temp').innerHTML = allData.newEntry.temperature;
+        document.getElementById('temp').innerHTML = allData.newEntry.temperature + ' °F';
         document.getElementById('content').innerHTML = allData.newEntry.content;
 
         feelings.value = '';
